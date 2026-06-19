@@ -1,0 +1,11 @@
+{
+  "name": "texas-medical-providers-directory",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Attorney-focused provider directory and provider request routing site for Texas Medical Providers.",
+  "scripts": {
+    "check": "node scripts/check-build.js",
+    "build": "npm run check",
+    "serve": "npx serve public"
+  }
+}
