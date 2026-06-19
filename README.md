@@ -1,6 +1,23 @@
 # Texas Medical Providers Directory
 
-Clean Netlify-ready website package for `TexasMedicalProviders.com`.
+Netlify-ready website package for `TexasMedicalProviders.com`.
+
+## What changed in this version
+
+This version adds the Texas Medical Providers brand assets:
+
+```text
+public/assets/brand/logo-horizontal.png
+public/assets/brand/logo-mark.png
+public/assets/brand/favicon.png
+public/assets/brand/favicon-32.png
+public/assets/brand/favicon-192.png
+public/assets/brand/apple-touch-icon.png
+public/assets/brand/og-image.png
+public/favicon.ico
+```
+
+It also updates the header, hero panel, footer, favicon tags, Open Graph image, and color system to match the red heart/heartbeat brand.
 
 ## Important security note
 
@@ -17,6 +34,7 @@ public/
 netlify/
 scripts/
 source/
+docs/
 README.md
 netlify.toml
 package.json
@@ -59,13 +77,3 @@ PROVIDER_ROUTING_JSON_BASE64
 ```
 
 Until those variables are set, the site will deploy, but the form will return an email-configuration error instead of silently losing requests.
-
-## Deployment reset instructions
-
-Because the first GitHub upload included old private-routing files, do not simply upload over the existing repo. Delete the old repo files first, or create a fresh repo, then upload this package.
-
-The old file that must not remain is:
-
-```text
-netlify/functions/providerRouting.private.js
-```

@@ -6,12 +6,24 @@
   <title>Texas Medical Providers | Attorney Provider Directory</title>
   <meta name="description" content="Find Texas medical providers for personal injury cases and submit provider requests through Texas Medical Providers." />
   <link rel="canonical" href="https://texasmedicalproviders.com/" />
+  <meta name="theme-color" content="#e60000" />
+  <meta property="og:title" content="Texas Medical Providers" />
+  <meta property="og:description" content="Attorney-focused provider directory and request routing support for personal injury law firms." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://texasmedicalproviders.com/" />
+  <meta property="og:image" content="https://texasmedicalproviders.com/assets/brand/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/brand/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="assets/brand/logo-mark.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header" data-elevated="false">
     <a class="brand" href="#top" aria-label="Texas Medical Providers home">
-      <span class="brand-mark" aria-hidden="true">TMP</span>
+      <img class="brand-mark" src="assets/brand/logo-mark.png" alt="" width="48" height="48" />
       <span class="brand-text">
         <strong>Texas Medical Providers</strong>
         <span>Attorney-focused provider directory</span>
@@ -42,8 +54,12 @@
       </div>
 
       <aside class="hero-panel" aria-label="Directory summary">
+        <div class="hero-logo-card">
+          <img src="assets/brand/logo-horizontal.png" alt="Texas Medical Providers" />
+          <p>Independent provider directory and routing support for personal injury law firms.</p>
+        </div>
         <div class="panel-header">
-          <span>Directory snapshot</span>
+          <span>Confirmed launch directory</span>
           <strong id="providerCount">0</strong>
         </div>
         <div class="metric-grid">
@@ -70,7 +86,7 @@
       <div class="section-heading">
         <p class="eyebrow">Directory</p>
         <h2>Search confirmed providers.</h2>
-        <p>Filter by city, specialty, service tag, or provider name. Provider request buttons do not expose private routing emails.</p>
+        <p>Filter by city, specialty, service tag, or provider name. Select a provider to submit a request through TMP.</p>
       </div>
 
       <div class="filter-panel" aria-label="Provider filters">
@@ -137,11 +153,14 @@
   </main>
 
   <footer class="site-footer" id="contact">
-    <div>
-      <strong>Texas Medical Providers</strong>
-      <p>Independent provider directory and routing support for personal injury law firms.</p>
+    <div class="footer-brand">
+      <img src="assets/brand/logo-mark.png" alt="" width="46" height="46" />
+      <div>
+        <strong>Texas Medical Providers</strong>
+        <p>Independent provider directory and routing support for personal injury law firms.</p>
+      </div>
     </div>
-    <div>
+    <div class="footer-contact">
       <a href="mailto:Info@TexasMedicalProviders.com">Info@TexasMedicalProviders.com</a>
       <a href="tel:+18554893627">855-489-3627</a>
     </div>
