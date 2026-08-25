@@ -147,7 +147,26 @@ window.TMP_PROVIDERS = [
     "phoneHref": "+14696344995",
     "website": "https://priorityercare.com/",
     "description": "Emergency room provider option serving McKinney, Rockwall, Dallas, and Odessa."
-  }
+  },
+  {
+  "name": "South Texas Pain & Neuro Care",
+  "slug": "south-texas-pain-neuro-care",
+  "primarySpecialty": "Pain Management",
+  "services": [
+    "Pain management",
+    "Neurology",
+    "LOP accepted",
+    "Personal injury cases",
+    "Attorney referrals"
+  ],
+  "cities": [
+    "Corpus Christi"
+  ],
+  "publicPhone": "361-233-4100",
+  "phoneHref": "+13612334100",
+  "website": "https://stxpainandneurocare.com",
+  "description": "Pain management and neuro care provider option serving South Texas."
+}
 ];
 
 window.TMP_FILTERS = {
@@ -175,21 +194,27 @@ window.TMP_FILTERS = {
   "specialties": [
     "Chiropractic Care",
     "Emergency Rooms",
+    "Non-Invasive Pain Management",
     "Life Care Planning",
     "Orthopedics",
     "Pain Management"
   ],
   "services": [
+    "Attorney referrals",
     "Burn care",
     "Hand microsurgery",
     "Impairment Ratings",
+    "LOP accepted",
     "MD consults",
     "MPNS",
     "MeRT",
+    "Neurology",
     "Orthopedic extremities",
     "Orthopedic spine",
     "PTSD",
+    "Pain Management",
     "Pain management",
+    "Personal injury cases",
     "Plastic reconstructive surgery",
     "Psychiatric care",
     "Psychiatry",
