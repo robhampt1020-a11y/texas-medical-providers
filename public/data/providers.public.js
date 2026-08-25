@@ -35,11 +35,14 @@ window.TMP_PROVIDERS = [
   {
     "name": "Brain Treatment Center",
     "slug": "brain-treatment-center",
-    "primarySpecialty": "Pain Management",
+    "primarySpecialty": "Non-Invasive Pain Management",
     "services": [
       "TBI",
       "PTSD",
       "Psychiatry"
+      "Non Invasive"
+      "Non-invasive"
+      "Pain Management"
     ],
     "cities": [
       "Austin"
@@ -86,9 +89,11 @@ window.TMP_PROVIDERS = [
     "primarySpecialty": "Chiropractic Care",
     "services": [
       "Impairment Ratings"
+      "Laser Therapy"
     ],
     "cities": [
       "Spring"
+      "Houston"
     ],
     "publicPhone": "281-376-1288",
     "phoneHref": "+12813761288",
@@ -98,11 +103,12 @@ window.TMP_PROVIDERS = [
   {
     "name": "Redefined Mind",
     "slug": "redefined-mind",
-    "primarySpecialty": "Pain Management",
+    "primarySpecialty": "Non-Invasive Pain Management",
     "services": [
       "MPNS",
       "MeRT",
       "Psychiatric care"
+      "Pain Management"
     ],
     "cities": [
       "Cypress",
