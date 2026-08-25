@@ -92,7 +92,7 @@ window.TMP_PROVIDERS = [
       "Laser Therapy"
     ],
     "cities": [
-      "Spring"
+      "Spring",
       "Houston"
     ],
     "publicPhone": "281-376-1288",
