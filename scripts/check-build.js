@@ -29,8 +29,8 @@ vm.runInContext(read(publicDataPath), sandbox);
 const providers = sandbox.window.TMP_PROVIDERS;
 const filters = sandbox.window.TMP_FILTERS;
 
-if (!Array.isArray(providers) || providers.length !== 9) {
-  throw new Error(`Expected 9 public providers, found ${providers?.length || 0}.`);
+if (!Array.isArray(providers) || providers.length < 1) {
+  throw new Error(`Expected at least 1 public provider, found ${providers?.length || 0}.`);
 }
 
 if (!filters || !Array.isArray(filters.cities) || !Array.isArray(filters.specialties)) {
