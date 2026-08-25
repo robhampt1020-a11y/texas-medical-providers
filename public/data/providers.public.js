@@ -39,9 +39,9 @@ window.TMP_PROVIDERS = [
     "services": [
       "TBI",
       "PTSD",
-      "Psychiatry"
-      "Non Invasive"
-      "Non-invasive"
+      "Psychiatry",
+      "Non Invasive",
+      "Non-invasive",
       "Pain Management"
     ],
     "cities": [
@@ -88,7 +88,7 @@ window.TMP_PROVIDERS = [
     "slug": "spring-spine-center",
     "primarySpecialty": "Chiropractic Care",
     "services": [
-      "Impairment Ratings"
+      "Impairment Ratings",
       "Laser Therapy"
     ],
     "cities": [
@@ -107,7 +107,7 @@ window.TMP_PROVIDERS = [
     "services": [
       "MPNS",
       "MeRT",
-      "Psychiatric care"
+      "Psychiatric care",
       "Pain Management"
     ],
     "cities": [
