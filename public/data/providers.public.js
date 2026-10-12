@@ -120,53 +120,60 @@ window.TMP_PROVIDERS = [
     "description": "Pain management provider with Cypress and Houston locations, specializing in MPNS, MeRT, and psychiatric care."
   },
   {
-    "name": "PMR Life Care Planner",
-    "slug": "pmr-life-care-planner",
+    "name": "South Texas Pain & Neuro Care",
+    "slug": "south-texas-pain-neuro-care",
+    "primarySpecialty": "Pain Management",
+    "services": [
+      "Pain Management",
+      "Neuro Care",
+      "Conservative Care Support",
+      "Family Nurse Practitioner Evaluations",
+      "Rehabilitation Support",
+      "Interventional Medicine Support",
+      "Personal Injury Recovery",
+      "LOP Accepted",
+      "MD Consults",
+      "Personal Injury Cases",
+      "Attorney Referrals"
+    ],
+    "cities": [
+      "Corpus Christi",
+      "South Texas"
+    ],
+    "publicPhone": "361-233-4100",
+    "phoneHref": "+13612334100",
+    "website": "https://stxpainandneurocare.com",
+    "description": "Pain management and neuro care provider option serving personal injury cases in Corpus Christi and South Texas."
+  },
+  {
+    "name": "REVVA Network",
+    "slug": "revva-network",
     "primarySpecialty": "Life Care Planning",
-    "services": [],
-    "cities": [
-      "Houston"
+    "services": [
+      "Clinical Experts",
+      "Case Intelligence",
+      "Life Care Planning",
+      "Medical Record Review",
+      "Functional Impact",
+      "Future Care Needs",
+      "Cost Research",
+      "Multidisciplinary Team",
+      "MDs",
+      "RNs",
+      "PTs",
+      "OTs",
+      "DCs",
+      "CINAs",
+      "FCE Support"
     ],
-    "publicPhone": "",
-    "phoneHref": "",
-    "website": "https://pmrlifecareplan.com",
-    "description": "Life care planning provider option serving Houston."
-  },
-  {
-    "name": "Priority ER Care",
-    "slug": "priority-er-care",
-    "primarySpecialty": "Emergency Rooms",
-    "services": [],
     "cities": [
-      "McKinney",
-      "Rockwall",
-      "Dallas",
-      "Odessa"
+      "Statewide"
     ],
-    "publicPhone": "469-634-4995 (McKinney); 432-552-8208 (Odessa)",
-    "phoneHref": "+14696344995",
-    "website": "https://priorityercare.com/",
-    "description": "Emergency room provider option serving McKinney, Rockwall, Dallas, and Odessa."
-  },
-  {
-  "name": "South Texas Pain & Neuro Care",
-  "slug": "south-texas-pain-neuro-care",
-  "primarySpecialty": "Pain Management",
-  "services": [
-    "Pain management",
-    "Neurology",
-    "LOP accepted",
-    "Personal injury cases",
-    "Attorney referrals"
-  ],
-  "cities": [
-    "Corpus Christi"
-  ],
-  "publicPhone": "361-233-4100",
-  "phoneHref": "+13612334100",
-  "website": "https://stxpainandneurocare.com",
-  "description": "Pain management and neuro care provider option serving South Texas."
-}
+    "publicPhone": "888-474-8473",
+    "phoneHref": "+18884748473",
+    "website": "https://revvanetwork.com",
+    "description": "Clinical experts and case intelligence support for serious injury cases, including life care planning, medical-record review, functional impact, and future care needs."
+  }
 ];
 
 window.TMP_FILTERS = {
@@ -178,46 +185,68 @@ window.TMP_FILTERS = {
     "Cedar Park",
     "Corpus Christi",
     "Cypress",
-    "Dallas",
     "Houston",
     "Hutto",
     "Laredo",
     "McAllen",
-    "McKinney",
     "Midland",
     "Odessa",
     "Pharr",
-    "Rockwall",
     "San Antonio",
-    "Spring"
+    "South Texas",
+    "Spring",
+    "Statewide"
   ],
   "specialties": [
     "Chiropractic Care",
-    "Emergency Rooms",
-    "Non-Invasive Pain Management",
     "Life Care Planning",
+    "Non-Invasive Pain Management",
     "Orthopedics",
     "Pain Management"
   ],
   "services": [
-    "Attorney referrals",
+    "Attorney Referrals",
     "Burn care",
+    "CINAs",
+    "Case Intelligence",
+    "Clinical Experts",
+    "Conservative Care Support",
+    "Cost Research",
+    "DCs",
+    "FCE Support",
+    "Family Nurse Practitioner Evaluations",
+    "Functional Impact",
+    "Future Care Needs",
     "Hand microsurgery",
     "Impairment Ratings",
-    "LOP accepted",
+    "Interventional Medicine Support",
+    "LOP Accepted",
+    "Laser Therapy",
+    "Life Care Planning",
+    "MD Consults",
     "MD consults",
+    "MDs",
     "MPNS",
     "MeRT",
-    "Neurology",
+    "Medical Record Review",
+    "Multidisciplinary Team",
+    "Neuro Care",
+    "Non Invasive",
+    "Non-invasive",
+    "OTs",
     "Orthopedic extremities",
     "Orthopedic spine",
     "PTSD",
+    "PTs",
     "Pain Management",
     "Pain management",
-    "Personal injury cases",
+    "Personal Injury Cases",
+    "Personal Injury Recovery",
     "Plastic reconstructive surgery",
     "Psychiatric care",
     "Psychiatry",
+    "RNs",
+    "Rehabilitation Support",
     "TBI",
     "Wound care"
   ]
