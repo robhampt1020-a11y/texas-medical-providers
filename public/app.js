@@ -50,33 +50,45 @@ function escapeHtml(value) {
   }[char]));
 }
 
+let selectedSlug = new URLSearchParams(location.search).get('provider') || '';
+let spotlightSlug = '';
+// Shared four-calendar-day schedule, anchored October 29, 2026 (Central Time).
+function nextSpotlight(now = new Date()) {
+ if (!providers.length) return null;
+ const parts = new Intl.DateTimeFormat('en-US', {
+   timeZone: 'America/Chicago', year: 'numeric', month: 'numeric', day: 'numeric'
+ }).formatToParts(now);
+ const value = type => Number(parts.find(part => part.type === type).value);
+ const calendarDay = Date.UTC(value('year'), value('month') - 1, value('day'));
+ const anchorDay = Date.UTC(2026, 9, 29);
+ const period = Math.floor((calendarDay - anchorDay) / (4 * 86400000));
+ return providers[((period % providers.length) + providers.length) % providers.length];
+}
 function buildProviderCard(provider) {
-  const article = document.createElement('article');
-  article.className = 'provider-card';
-  const cities = provider.cities.join(', ');
-  const services = provider.services.length ? provider.services : ['Provider option'];
-  const tags = services.slice(0, 8).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
-  const website = provider.website ? `<a class="button secondary" href="${escapeHtml(provider.website)}" target="_blank" rel="noopener">Website</a>` : '';
-  const phone = provider.publicPhone ? `<a class="button secondary" href="tel:${escapeHtml(provider.phoneHref || '')}">Call</a>` : '';
-
-  article.innerHTML = `
-    <header>
-      <div class="specialty">${escapeHtml(provider.primarySpecialty)}</div>
-      <h3>${escapeHtml(provider.name)}</h3>
-    </header>
-    <p>${escapeHtml(provider.description)}</p>
-    <div class="tag-row" aria-label="Services">${tags}</div>
-    <div class="card-meta">
-      <span><strong>Cities:</strong> ${escapeHtml(cities)}</span>
-      ${provider.publicPhone ? `<span><strong>Phone:</strong> ${escapeHtml(provider.publicPhone)}</span>` : ''}
-    </div>
-    <div class="card-links">
-      <button class="button primary" type="button" data-provider-slug="${escapeHtml(provider.slug)}">Request Provider</button>
-      ${website}
-      ${phone}
-    </div>
-  `;
-  return article;
+ const button = document.createElement('button');
+ button.type = 'button'; button.className = 'provider-list-item';
+ button.dataset.selectProvider = provider.slug;
+ button.setAttribute('aria-pressed',String(provider.slug === selectedSlug));
+ button.innerHTML = '<span class="list-specialty">'+escapeHtml(provider.primarySpecialty)+'</span><strong>'+escapeHtml(provider.name)+'</strong><span class="list-cities">'+escapeHtml(provider.cities.join(' · '))+'</span><span class="list-view">View profile <span aria-hidden="true">→</span></span>';
+ return button;
+}
+function renderDetail(provider) {
+ const panel = document.getElementById('providerDetail');
+ if (!provider) { panel.innerHTML = '<div class="detail-placeholder"><p class="eyebrow">Explore the network</p><h2 id="detailTitle">Select a provider.</h2><p>Choose a matching provider to view services and request options.</p></div>'; return; }
+ const profile = (window.TMP_PROFILES || {})[provider.slug] || {};
+ const services = [...new Set(provider.services.map(s => /non[- ]?invasive/i.test(s) ? 'Non-invasive' : s.toLowerCase() === 'pain management' ? 'Pain Management' : s.toLowerCase() === 'md consults' ? 'MD Consults' : s))];
+ const specialties = profile.otherSpecialties || [];
+ panel.innerHTML = '<button class="detail-back text-link" type="button">← Back to provider list</button><div class="provider-photo">'+(profile.image ? '<img src="'+escapeHtml(profile.image)+'" alt="'+escapeHtml(profile.imageAlt || provider.name)+'" />' : '<img class="placeholder-logo" src="assets/brand/logo-mark.png" alt="" /><span>Provider photo coming soon</span>')+'</div><div class="detail-content">'+(provider.slug === spotlightSlug ? '<p class="spotlight-label">Provider spotlight</p>' : '')+'<p class="eyebrow">'+escapeHtml(provider.primarySpecialty)+'</p><h2 id="detailTitle" tabindex="-1">'+escapeHtml(provider.name)+'</h2><p class="detail-description">'+escapeHtml(profile.description || provider.description)+'</p><div class="detail-actions"><button class="button primary" type="button" data-provider-slug="'+escapeHtml(provider.slug)+'">Request Provider</button>'+(provider.website ? '<a class="button secondary" target="_blank" rel="noopener" href="'+escapeHtml(provider.website)+'">Visit website ↗</a>':'')+'</div><div class="detail-section"><h3>Specialties</h3><div class="tag-row">'+[provider.primarySpecialty,...specialties].map(s => '<span class="tag">'+escapeHtml(s)+'</span>').join('')+'</div></div><div class="detail-section"><h3>Services &amp; capabilities</h3><ul class="service-list">'+services.map(s => '<li>'+escapeHtml(s)+'</li>').join('')+'</ul></div><div class="detail-section"><h3>Locations &amp; coverage</h3><div class="tag-row">'+provider.cities.map(s => '<span class="tag">'+escapeHtml(s)+'</span>').join('')+'</div></div>'+(provider.publicPhone ? '<div class="detail-section"><h3>Contact</h3><a class="text-link" href="tel:'+escapeHtml(provider.phoneHref)+'">'+escapeHtml(provider.publicPhone)+'</a></div>':'')+'<p class="detail-disclaimer">TMP is an independent directory and routing service. Confirm current services and availability directly with the provider.</p></div>';
+ panel.querySelector('.detail-back').addEventListener('click', () => { document.querySelector('.directory-layout').classList.remove('mobile-detail-open'); document.querySelector('[data-select-provider="'+provider.slug+'"]').focus(); });
+}
+function selectProvider(provider, focus = false, spotlight = false) {
+ spotlightSlug = spotlight ? provider.slug : '';
+ selectedSlug = provider.slug;
+ if (!spotlight) { const url = new URL(location.href); url.searchParams.set('provider',selectedSlug); history.replaceState(null,'',url); }
+ document.querySelectorAll('[data-select-provider]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.selectProvider === selectedSlug)));
+ renderDetail(provider);
+ document.querySelector('.directory-layout').classList.add('mobile-detail-open');
+ if (focus) document.getElementById('detailTitle').focus({preventScroll:true});
 }
 
 function providerMatches(provider) {
@@ -97,11 +109,14 @@ function renderProviders() {
   els.providerGrid.innerHTML = '';
   matches.forEach((provider) => els.providerGrid.appendChild(buildProviderCard(provider)));
   els.emptyState.hidden = matches.length !== 0;
+  if (!matches.some(p => p.slug === selectedSlug)) { selectedSlug = ''; renderDetail(null); document.querySelector('.directory-layout').classList.remove('mobile-detail-open'); const url = new URL(location.href); url.searchParams.delete('provider'); history.replaceState(null,'',url); }
   els.resultSummary.textContent = `${plural(matches.length, 'provider')} shown`;
 }
 
 function openRequest(provider = null) {
   els.requestForm.reset();
+  document.getElementById('requestModalTitle').textContent = provider ? 'Request Provider' : 'Let us help you find a provider';
+  els.requestForm.querySelector('button[type="submit"]').textContent = provider ? 'Send Provider Request' : 'Send my provider search request';
   els.formStatus.textContent = '';
   els.formStatus.dataset.state = '';
 
@@ -114,7 +129,7 @@ function openRequest(provider = null) {
     els.providerSlug.value = '';
     els.providerName.value = 'General Provider Request';
     els.specialtyNeeded.value = '';
-    els.selectedProviderText.textContent = 'General provider request';
+    els.selectedProviderText.textContent = 'Tell us the city, specialty, and case need. TMP will help identify provider options and route your request.';
   }
 
   if (typeof els.modal.showModal === 'function') {
@@ -170,7 +185,13 @@ function init() {
   populateFilter(els.cityFilter, filters.cities);
   populateFilter(els.specialtyFilter, filters.specialties);
   populateFilter(els.serviceFilter, filters.services);
+  if (!providers.some(provider => provider.slug === selectedSlug)) {
+    const spotlight = nextSpotlight();
+    if (spotlight) selectedSlug = spotlightSlug = spotlight.slug;
+  }
   renderProviders();
+  const initialProvider = providers.find(p => p.slug === selectedSlug);
+  if (initialProvider) selectProvider(initialProvider, false, Boolean(spotlightSlug));
 
   [els.searchInput, els.cityFilter, els.specialtyFilter, els.serviceFilter].forEach((control) => {
     control.addEventListener('input', renderProviders);
@@ -186,6 +207,8 @@ function init() {
   });
 
   document.addEventListener('click', (event) => {
+    const selection = event.target.closest('[data-select-provider]');
+    if (selection) selectProvider(providers.find(p => p.slug === selection.dataset.selectProvider), true);
     const requestButton = event.target.closest('[data-provider-slug]');
     if (requestButton) {
       const provider = providers.find((item) => item.slug === requestButton.dataset.providerSlug);
