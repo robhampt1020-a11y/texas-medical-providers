@@ -18,7 +18,7 @@
   <link rel="icon" type="image/png" href="assets/brand/favicon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="preload" as="image" href="assets/brand/logo-mark.png" />
-  <link rel="stylesheet" href="styles.css?v=banners1" />
+  <link rel="stylesheet" href="styles.css?v=directory-search1" />
 </head>
 <body class="directory-page"><a class="skip-link" href="#directory">Skip to provider directory</a>  <header class="site-header" data-elevated="false">
     <a class="brand" href="index.html" aria-label="Texas Medical Providers home">
@@ -34,7 +34,7 @@
     <button class="button primary small provider-help" type="button" data-open-request><span>Can’t find a provider?</span><span class="provider-help-subtitle">We’ll help you find one.</span></button>
   </header>
 
-<main id="top"><section class="directory-workspace section-shell" id="directory"><div class="directory-title"><div><p class="eyebrow">Provider directory</p><h1>Find the right connection.</h1><p>Search the network. Select a provider to explore their services.</p></div><a class="text-link" href="index.html">← Back to home</a></div>      <div class="filter-panel" aria-label="Provider filters">
+<main id="top"><section class="directory-workspace section-shell" id="directory"><div class="directory-title"><div><p class="eyebrow">Provider directory</p><h1>Find the right connection.</h1><p>Search the network. Select a provider to explore their services.</p></div><a class="text-link" href="index.html">← Back to home</a></div>      <form class="filter-panel" id="directorySearch" aria-label="Provider filters">
         <label>
           <span>Provider search</span>
           <input id="searchInput" type="search" placeholder="Search provider, city, or service" autocomplete="off" />
@@ -51,10 +51,10 @@
           <span>Service</span>
           <select id="serviceFilter"><option value="">All services</option></select>
         </label>
-        <button class="button ghost" id="clearFilters" type="button">Clear</button>
-      </div>
+        <div class="filter-actions"><button class="button primary" type="submit">Search</button><button class="button ghost" id="clearFilters" type="button">Clear</button></div>
+      </form>
 
-<div class="directory-layout"><aside class="provider-sidebar" aria-label="Provider results"><div class="result-line" id="resultSummary" aria-live="polite"></div><div id="providerGrid" class="provider-list"></div><div class="empty-state" id="emptyState" hidden><h3>No matching providers.</h3><p>Try another search or clear your filters.</p><button class="button secondary" data-open-request>Help me find a provider</button></div></aside><section id="providerDetail" class="provider-detail" aria-labelledby="detailTitle"><div class="detail-placeholder"><img src="assets/brand/logo-mark.png" width="60" height="60" alt="" /><p class="eyebrow">Explore the network</p><h2 id="detailTitle">Start with a provider.</h2><p>Select a provider on the left to view their profile, services, locations, and request options.</p></div></section></div><div hidden><span id="providerCount"></span><span id="cityCount"></span><span id="specialtyCount"></span></div></section></main>  <footer class="site-footer" id="contact">
+<div class="directory-layout"><aside class="provider-sidebar" aria-label="Provider results"><div class="result-line" id="resultSummary" tabindex="-1" aria-live="polite"></div><div id="providerGrid" class="provider-list"></div><div class="empty-state" id="emptyState" hidden><h3>No matching providers.</h3><p>Try another search or clear your filters.</p><button class="button secondary" data-open-request>Help me find a provider</button></div></aside><section id="providerDetail" class="provider-detail" aria-labelledby="detailTitle"><div class="detail-placeholder"><img src="assets/brand/logo-mark.png" width="60" height="60" alt="" /><p class="eyebrow">Explore the network</p><h2 id="detailTitle">Start with a provider.</h2><p>Select a provider on the left to view their profile, services, locations, and request options.</p></div></section></div><div hidden><span id="providerCount"></span><span id="cityCount"></span><span id="specialtyCount"></span></div></section></main>  <footer class="site-footer" id="contact">
     <div class="footer-brand">
       <img src="assets/brand/logo-mark.png" alt="" width="46" height="46" />
       <div>
@@ -140,4 +140,4 @@
     </form>
   </dialog>
 
-<script src="data/providers.public.js"></script><script src="data/provider-profiles.js?v=banners1"></script><script src="app.js?v=spotlight4day"></script></body></html>
+<script src="data/providers.public.js"></script><script src="data/provider-profiles.js?v=banners1"></script><script src="app.js?v=directory-search1"></script></body></html>

@@ -198,6 +198,14 @@ function init() {
     control.addEventListener('change', renderProviders);
   });
 
+  document.getElementById('directorySearch').addEventListener('submit', event => {
+    event.preventDefault();
+    renderProviders();
+    document.querySelector('.directory-layout').classList.remove('mobile-detail-open');
+    els.resultSummary.focus({preventScroll:true});
+    els.resultSummary.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block:'start'});
+  });
+
   els.clearFilters.addEventListener('click', () => {
     els.searchInput.value = '';
     els.cityFilter.value = '';
