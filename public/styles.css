@@ -562,3 +562,56 @@ input, select, textarea { border-color:#ced4dc; border-radius:5px; min-height:46
 /* Preserve the full artwork at every screen width. */
 .provider-photo:has(> img:not(.placeholder-logo)) { display:block; min-height:0; background:#fff; }
 .provider-photo > img:not(.placeholder-logo) { display:block; width:100%; height:auto; aspect-ratio:3 / 1; object-fit:contain; }
+
+/* Homepage provider banners */
+.provider-carousel-section { padding-top:36px; padding-bottom:40px; }
+.carousel-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:18px; }
+.carousel-heading .eyebrow { margin:0; }
+.carousel-controls { display:flex; align-items:center; gap:8px; }
+.carousel-controls button { border:1px solid var(--line); border-radius:5px; background:white; color:var(--ink); min-height:38px; min-width:38px; padding:8px 13px; font:inherit; font-size:12px; cursor:pointer; }
+.carousel-controls button:hover { border-color:var(--red); color:var(--red-dark); }
+.provider-carousel { border:1px solid var(--line); border-radius:9px; overflow:hidden; background:#fff; }
+.banner-artwork { display:block; background:white; }
+.banner-artwork img { display:block; width:100%; height:auto; aspect-ratio:3 / 1; object-fit:contain; }
+.banner-caption { display:flex; justify-content:space-between; align-items:center; gap:24px; border-top:1px solid var(--line); padding:22px 28px; }
+.banner-kicker { display:block; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
+.banner-caption h2 { font-size:22px; margin:0; }
+.banner-caption > a { flex-shrink:0; }
+.banner-dots { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.banner-dots button { position:relative; width:26px; height:26px; padding:0; border:0; background:transparent; cursor:pointer; }
+.banner-dots button::after { content:""; position:absolute; inset:9px; border-radius:50%; background:#c4cad2; }
+.banner-dots button[aria-current="true"]::after { background:var(--red); }
+@media(max-width:600px) { .provider-carousel-section { padding-top:26px; padding-bottom:28px; } .banner-caption { padding:18px; gap:16px; align-items:flex-start; } .banner-caption h2 { font-size:17px; } .banner-caption > a { font-size:11px; } .carousel-heading { gap:10px; } }
+
+/* Countdown control and left-to-right banner transitions. */
+#bannerPause { position:relative; min-width:68px; font-variant-numeric:tabular-nums; }
+.banner-countdown { display:block; }
+.banner-pause-action { display:none; }
+#bannerPause:hover .banner-countdown, #bannerPause:focus-visible .banner-countdown, #bannerPause.is-paused .banner-countdown { display:none; }
+#bannerPause:hover .banner-pause-action, #bannerPause:focus-visible .banner-pause-action, #bannerPause.is-paused .banner-pause-action { display:block; }
+.banner-artwork { position:relative; overflow:hidden; }
+.banner-artwork img.banner-outgoing { position:absolute; inset:0; pointer-events:none; animation:banner-exit-right .65s cubic-bezier(.22,.61,.36,1) both; }
+.banner-artwork img.banner-incoming { animation:banner-enter-left .65s cubic-bezier(.22,.61,.36,1) both; }
+@keyframes banner-enter-left { from { transform:translateX(-100%); } to { transform:translateX(0); } }
+@keyframes banner-exit-right { from { transform:translateX(0); } to { transform:translateX(100%); } }
+@media(prefers-reduced-motion:reduce) { .banner-artwork img { animation:none!important; } }
+
+/* A hollow countdown ring, full at the start of each 15-second slide. */
+#bannerPause { width:48px; min-width:48px; height:48px; padding:6px; border-radius:50%; border-color:transparent; }
+.banner-countdown { width:34px; height:34px; }
+.banner-countdown svg { display:block; width:100%; height:100%; transform:rotate(-90deg); }
+.banner-countdown circle { fill:none; stroke-width:2.5; }
+.timer-track { stroke:#edf0f3; }
+.timer-ring { stroke:var(--red); stroke-dasharray:100; stroke-dashoffset:calc(100 - var(--timer-remaining,100)); transition:stroke-dashoffset .1s linear; }
+#bannerPause .banner-pause-action { font-size:11px; }
+
+/* Previous moves right to left; next moves left to right. */
+.banner-artwork img.banner-outgoing-reverse { animation-name:banner-exit-left; }
+.banner-artwork img.banner-incoming-reverse { animation:banner-enter-right .65s cubic-bezier(.22,.61,.36,1) both; }
+@keyframes banner-enter-right { from { transform:translateX(100%); } to { transform:translateX(0); } }
+@keyframes banner-exit-left { from { transform:translateX(0); } to { transform:translateX(-100%); } }
+
+.banner-caption { display:grid; grid-template-columns:1fr 1fr 1fr; }
+.banner-specialty { margin:0; text-align:center; color:var(--red-dark); font-size:14px; font-weight:600; line-height:1.5; }
+.banner-caption > a { justify-self:end; }
+@media(max-width:600px) { .banner-caption { grid-template-columns:1fr auto; } .banner-specialty { grid-column:1 / -1; grid-row:2; text-align:center; font-size:12px; padding-top:12px; border-top:1px solid var(--line); } }

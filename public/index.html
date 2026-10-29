@@ -18,7 +18,7 @@
   <link rel="icon" type="image/png" href="assets/brand/favicon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="preload" as="image" href="assets/brand/logo-mark.png" />
-  <link rel="stylesheet" href="styles.css?v=home5" />
+  <link rel="stylesheet" href="styles.css?v=carousel5" />
 </head>
 <body class="hub-page"><a class="skip-link" href="#updates">Skip to provider updates</a>  <header class="site-header" data-elevated="false">
     <a class="brand" href="index.html" aria-label="Texas Medical Providers home">
@@ -36,6 +36,14 @@
 
 
 <main id="top"><section class="hub-hero hub-hero-intro section-shell"><div><p class="eyebrow">Texas Medical Providers / Provider Updates</p><h1>Your connection to <span class="headline-accent">what’s next in care.</span></h1><p class="hero-lead">Provider news, service highlights, and a clear path to the medical resources your legal team needs.</p><a class="button primary" href="directory.html">Search directory <span aria-hidden="true">&nbsp;↗</span></a></div></section>
+
+<section class="section-shell provider-carousel-section" aria-label="Featured providers">
+  <div class="carousel-heading"><p class="eyebrow">Meet our providers</p><div class="carousel-controls"><button type="button" id="bannerPrevious" aria-label="Previous provider">←</button><button type="button" id="bannerPause" aria-pressed="false">Pause</button><button type="button" id="bannerNext" aria-label="Next provider">→</button></div></div>
+  <div id="providerCarousel" class="provider-carousel" aria-roledescription="carousel" aria-label="Provider banners">
+    <a id="bannerLink" class="banner-artwork" href="directory.html?provider=texas-spine-and-orthopedics"><img id="bannerImage" src="assets/providers/texas-spine-and-orthopedics.png" alt="Texas Spine and Orthopedics branded banner" width="2172" height="724" /></a>
+    <div class="banner-caption"><div><span class="banner-kicker">Featured provider</span><h2 id="bannerName">Texas Spine and Orthopedics</h2></div><p id="bannerSpecialty" class="banner-specialty">Orthopedics</p><a id="bannerProfile" class="text-link" href="directory.html?provider=texas-spine-and-orthopedics">View profile →</a></div>
+  </div><div id="bannerDots" class="banner-dots" aria-label="Choose a provider banner"></div>
+</section>
 <section id="updates" class="section-shell updates-section"><div class="updates-heading"><div><p class="eyebrow">From the network</p><h2>Provider updates &amp; highlights</h2><p>News and a closer look at the providers in our directory.</p></div><span class="update-note">Your weekly provider updates</span></div><div id="updatesGrid" class="updates-grid"></div></section>
 <section class="section-shell hub-directory-cta"><div><p class="eyebrow">Find your next provider</p><h2>A directory built around your case needs.</h2><p>Search by city, specialty, or service. Explore provider profiles before you request.</p></div><a class="button primary" href="directory.html">Search directory →</a></section></main>  <footer class="site-footer" id="contact">
     <div class="footer-brand">
@@ -51,4 +59,4 @@
     </div>
   </footer>
 
-<script src="data/providers.public.js"></script><script src="data/provider-profiles.js"></script><script src="data/updates.js"></script><script src="hub.js?v=home4"></script></body></html>
+<script src="data/providers.public.js"></script><script src="data/provider-profiles.js?v=banners1"></script><script src="data/updates.js"></script><script src="hub.js?v=carousel5"></script></body></html>
