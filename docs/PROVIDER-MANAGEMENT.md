@@ -44,3 +44,7 @@ Edit an existing object's values to update it. Keep its slug stable. To remove a
 ## Troubleshooting
 
 The build names the provider and field needing attention. It rejects duplicate names/slugs, missing descriptions or main specialties, empty city/service lists, invalid phone/website formats, missing banner files, unknown fields, and private email addresses. Correct the source and rebuild. You do not need to maintain filter counts or provider counts manually.
+
+## Adding private routing without replacing the original map
+
+For new providers, Netlify also supports **PROVIDER_ROUTING_ADDITIONS_JSON**. Its value is a JSON object keyed by provider slug, using the same name, email, and primarySpecialty fields. Store real addresses only in Netlify. Add entries to this supplemental map while preserving any existing entries. The original routing map takes precedence for slugs already configured there. Configure the supplemental value for production and any preview contexts you intend to use.
