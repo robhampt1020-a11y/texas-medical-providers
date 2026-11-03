@@ -4,8 +4,10 @@
   "private": true,
   "description": "Attorney-focused provider directory and provider request routing site for Texas Medical Providers.",
   "scripts": {
-    "check": "node scripts/check-build.js",
+    "check": "node scripts/build-providers.js && node scripts/check-build.js",
     "build": "npm run check",
-    "serve": "npx serve public"
+    "serve": "npx serve public",
+    "providers:build": "node scripts/build-providers.js",
+    "test": "node --test scripts/provider-management.test.js"
   }
 }
