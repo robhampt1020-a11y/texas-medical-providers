@@ -26,12 +26,16 @@ function loadRoutingMap() {
     ? Buffer.from(encoded, 'base64').toString('utf8')
     : process.env.PROVIDER_ROUTING_JSON;
 
-  if (!raw) {
-    return {};
+  // Add new provider destinations without replacing the existing secret map.
+  // Existing destinations always take precedence over additions.
+  const parsed = raw ? JSON.parse(raw) : {};
+  const additions = JSON.parse(process.env.PROVIDER_ROUTING_ADDITIONS_JSON || '{}');
+  for (const map of [parsed, additions]) {
+    if (!map || typeof map !== 'object' || Array.isArray(map)) {
+      throw new Error('Provider routing must be a JSON object.');
+    }
   }
-
-  const parsed = JSON.parse(raw);
-  return parsed && typeof parsed === 'object' ? parsed : {};
+  return { ...additions, ...parsed };
 }
 
 function requireEmailConfig() {
