@@ -188,5 +188,46 @@
     "description": "Clinical experts and case intelligence support for serious injury cases, including life care planning, medical-record review, functional impact, and future care needs.",
     "image": "assets/providers/revva-network.png",
     "imageAlt": "REVVA Network branded banner"
+  },
+  {
+    "name": "PS Clinics - Dr. Pradeep S. Mohan",
+    "slug": "ps-clinics",
+    "primarySpecialty": "Plastic & Reconstructive Surgery",
+    "services": [
+      "Plastic reconstructive surgery",
+      "Hand microsurgery",
+      "Wound care",
+      "Burn care",
+      "Adult and Pediatric Care",
+      "Coordinated Specialty Care"
+    ],
+    "cities": [
+      "Live Oak",
+      "San Antonio",
+      "Boerne",
+      "Austin",
+      "Corpus Christi",
+      "Houston",
+      "Bellaire",
+      "Dallas",
+      "Frisco",
+      "Arlington",
+      "McAllen",
+      "Pharr",
+      "Midland",
+      "Odessa",
+      "Laredo",
+      "Albuquerque"
+    ],
+    "publicPhone": "210-566-4444",
+    "phoneHref": "+12105664444",
+    "website": "https://psclinics.com",
+    "description": "PS Clinics is led by Medical Director Dr. Pradeep S. Mohan, a plastic and reconstructive surgeon with over 25 years of experience. His areas of care include adult and pediatric reconstruction, hand and microsurgery, wound care, and burn care. The main office is at 12315 Judson Road, Suite 114, Live Oak, TX 78233. PS Clinics also coordinates access to multidisciplinary care through participating providers across Texas and in New Mexico. Services and availability vary by location; confirm the appointment location directly with the practice.",
+    "otherSpecialties": [
+      "Hand & Microsurgery",
+      "Wound & Burn Care"
+    ],
+    "image": "assets/providers/ps-clinics.png",
+    "imageAlt": "PS Clinics - Dr. Pradeep S. Mohan branded banner"
   }
 ]

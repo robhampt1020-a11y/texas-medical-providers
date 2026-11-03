@@ -8,6 +8,6 @@
     "build": "npm run check",
     "serve": "npx serve public",
     "providers:build": "node scripts/build-providers.js",
-    "test": "node --test scripts/provider-management.test.js"
+    "test": "node --test scripts/*.test.js"
   }
 }
